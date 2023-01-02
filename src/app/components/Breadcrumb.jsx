@@ -50,16 +50,14 @@ const Breadcrumb = ({ routeSegments }) => {
         separator={<Icon sx={{ color: hint }}>navigate_next</Icon>}
         sx={{ display: 'flex', alignItems: 'center', position: 'relative' }}
       >
-        <NavLink to="/">
+        <NavLink to="/dashboard/default">
           <StyledIcon color="primary">home</StyledIcon>
         </NavLink>
 
         {routeSegments
           ? routeSegments.map((route, index) => {
               return index !== routeSegments.length - 1 ? (
-                <NavLink key={index} to={route.path}>
-                  <SubName>{route.name}</SubName>
-                </NavLink>
+                <SubName>{route.name}</SubName>
               ) : (
                 <SubName key={index}>{route.name}</SubName>
               );

@@ -39,7 +39,6 @@ const AppEchart = () => {
       </SimpleCard>
 
       <Box sx={{ py: '12px' }} />
-
       <SimpleCard title="Line Chart">
         <LineChart
           height="350px"

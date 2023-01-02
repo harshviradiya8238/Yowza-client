@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+.profile_card {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+}
+.profile-info > .profile-name {
+  color: #212121;
+}
+
+.profile-info > .profile-desc {
+  color: #666666;
+  font-size: 0.9rem;
+}
+
+.status li {
+  display: flex;
+  align-items: center;
+}
+
+.status-value {
+  color: #212121;
+  font-weight: 700;
+}
+
+.status-text {
+  font-size: 0.8rem;
+  color: #7c7c7d;
+  margin-left: 5px;
+}

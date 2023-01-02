@@ -89,7 +89,7 @@ function ShoppingCart({ container }) {
   const secondary = theme.palette.text.secondary;
 
   if (!cartListLoaded) {
-    dispatch(getCartList(user.id));
+    // dispatch(getCartList(user.id));
     cartListLoaded = true;
   }
 
@@ -118,12 +118,6 @@ function ShoppingCart({ container }) {
 
   return (
     <Fragment>
-      <IconButton onClick={handleDrawerToggle}>
-        <Badge color="secondary" badgeContent={cartList.length}>
-          <Icon sx={{ color: textColor }}>shopping_cart</Icon>
-        </Badge>
-      </IconButton>
-
       <ThemeProvider theme={settings.themes[settings.activeTheme]}>
         <Drawer
           container={container}

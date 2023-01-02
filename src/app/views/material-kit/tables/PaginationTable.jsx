@@ -9,82 +9,85 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-} from "@mui/material";
-import { useState } from "react";
+  ToggleButton,
+} from '@mui/material';
+import { useState } from 'react';
+import Switch from '@mui/material/Switch';
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 const StyledTable = styled(Table)(() => ({
-  whiteSpace: "pre",
-  "& thead": {
-    "& tr": { "& th": { paddingLeft: 0, paddingRight: 0 } },
+  whiteSpace: 'pre',
+  '& thead': {
+    '& tr': { '& th': { paddingLeft: 0, paddingRight: 0 } },
   },
-  "& tbody": {
-    "& tr": { "& td": { paddingLeft: 0, textTransform: "capitalize" } },
+  '& tbody': {
+    '& tr': { '& td': { paddingLeft: 0, textTransform: 'capitalize' } },
   },
 }));
 
 const subscribarList = [
   {
-    name: "john doe",
-    date: "18 january, 2019",
-    amount: 1000,
-    status: "close",
-    company: "ABC Fintech LTD.",
+    name: 'john doe',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'ABC Fintech LTD.',
   },
   {
-    name: "kessy bryan",
-    date: "10 january, 2019",
-    amount: 9000,
-    status: "open",
-    company: "My Fintech LTD.",
+    name: 'kessy bryan',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'My Fintech LTD.',
   },
   {
-    name: "kessy bryan",
-    date: "10 january, 2019",
-    amount: 9000,
-    status: "open",
-    company: "My Fintech LTD.",
+    name: 'kessy bryan',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'My Fintech LTD.',
   },
   {
-    name: "james cassegne",
-    date: "8 january, 2019",
-    amount: 5000,
-    status: "close",
-    company: "Collboy Tech LTD.",
+    name: 'james cassegne',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'Collboy Tech LTD.',
   },
   {
-    name: "lucy brown",
-    date: "1 january, 2019",
-    amount: 89000,
-    status: "open",
-    company: "ABC Fintech LTD.",
+    name: 'lucy brown',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'ABC Fintech LTD.',
   },
   {
-    name: "lucy brown",
-    date: "1 january, 2019",
-    amount: 89000,
-    status: "open",
-    company: "ABC Fintech LTD.",
+    name: 'lucy brown',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'ABC Fintech LTD.',
   },
   {
-    name: "lucy brown",
-    date: "1 january, 2019",
-    amount: 89000,
-    status: "open",
-    company: "ABC Fintech LTD.",
+    name: 'lucy brown',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'ABC Fintech LTD.',
   },
   {
-    name: "lucy brown",
-    date: "1 january, 2019",
-    amount: 89000,
-    status: "open",
-    company: "ABC Fintech LTD.",
+    name: 'lucy brown',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867',
+    company: 'ABC Fintech LTD.',
   },
   {
-    name: "lucy brown",
-    date: "1 january, 2019",
-    amount: 89000,
-    status: "open",
-    company: "ABC Fintech LTD.",
+    name: 'lucy brown',
+    designation: 'Lending Manager	',
+    email: 'shahil@gmail.com',
+    phone: '9867879867 ',
+    company: 'ABC Fintech LTD.',
   },
 ];
 
@@ -107,11 +110,15 @@ const PaginationTable = () => {
         <TableHead>
           <TableRow>
             <TableCell align="left">Name</TableCell>
-            <TableCell align="center">Company</TableCell>
-            <TableCell align="center">Start Date</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">Amount</TableCell>
-            <TableCell align="right">Action</TableCell>
+            <TableCell align="center">AUTHORITY NAME</TableCell>
+            <TableCell align="center" width="200px">
+              AUTHORITY DESIGNATION
+            </TableCell>
+            <TableCell align="center">PHONE</TableCell>
+            <TableCell align="center" width="200px">
+              EMAIL
+            </TableCell>
+            <TableCell align="right">BLOCK/UNBLOCK</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -121,13 +128,11 @@ const PaginationTable = () => {
               <TableRow key={index}>
                 <TableCell align="left">{subscriber.name}</TableCell>
                 <TableCell align="center">{subscriber.company}</TableCell>
-                <TableCell align="center">{subscriber.date}</TableCell>
-                <TableCell align="center">{subscriber.status}</TableCell>
-                <TableCell align="center">${subscriber.amount}</TableCell>
+                <TableCell align="center">{subscriber.designation}</TableCell>
+                <TableCell align="center">{subscriber.phone}</TableCell>
+                <TableCell align="center">{subscriber.email}</TableCell>
                 <TableCell align="right">
-                  <IconButton>
-                    <Icon color="error">close</Icon>
-                  </IconButton>
+                  <Switch {...label} defaultChecked />
                 </TableCell>
               </TableRow>
             ))}
@@ -143,8 +148,8 @@ const PaginationTable = () => {
         onPageChange={handleChangePage}
         rowsPerPageOptions={[5, 10, 25]}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        nextIconButtonProps={{ "aria-label": "Next Page" }}
-        backIconButtonProps={{ "aria-label": "Previous Page" }}
+        nextIconButtonProps={{ 'aria-label': 'Next Page' }}
+        backIconButtonProps={{ 'aria-label': 'Previous Page' }}
       />
     </Box>
   );

@@ -13,9 +13,7 @@ const App = () => {
   return (
     <Provider store={Store}>
       <SettingsProvider>
-        <MatxTheme>
-          <AuthProvider>{content}</AuthProvider>
-        </MatxTheme>
+        <MatxTheme>{content}</MatxTheme>
       </SettingsProvider>
     </Provider>
   );

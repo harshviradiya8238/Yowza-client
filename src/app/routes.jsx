@@ -16,9 +16,9 @@ const routes = [
     ),
     children: [...dashboardRoutes, ...chartsRoute, ...materialRoutes],
   },
-  ...sessionRoutes,
-  { path: '/', element: <Navigate to="dashboard/default" /> },
+  { path: '/', element: <Navigate to="session/signin" /> },
   { path: '*', element: <NotFound /> },
+  ...sessionRoutes,
 ];
 
 export default routes;

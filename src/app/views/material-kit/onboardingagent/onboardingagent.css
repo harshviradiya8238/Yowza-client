@@ -1,0 +1,144 @@
+.section {
+  padding: 0px 25px 0px 25px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.h3 {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  background: #b17b83;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+.fistDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name {
+  display: flex;
+  justify-content: center;
+}
+.name ul {
+  list-style: none;
+  text-align: start;
+}
+.status {
+  margin-right: 30px;
+}
+.status li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.status-text {
+  margin-left: 10px;
+}
+.tabpanel {
+  box-shadow: 0px 16px 16px rgba(50, 50, 71, 0.08), 0px 24px 32px rgba(50, 50, 71, 0.08);
+}
+
+.maintab {
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.lefttab {
+  width: 50%;
+  padding: 10px;
+}
+.righttab {
+  width: 50%;
+  padding: 10px;
+}
+
+.textField {
+  width: 60%;
+}
+.firstdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: 0px 16px 16px rgba(50, 50, 71, 0.08), 0px 24px 32px rgba(50, 50, 71, 0.08);
+  padding: 15px;
+}
+.seconddiv {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 15px;
+  box-shadow: 0px 16px 16px rgba(50, 50, 71, 0.08), 0px 24px 32px rgba(50, 50, 71, 0.08);
+}
+.towimage {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.boximage {
+  height: 175px;
+  cursor: pointer;
+  width: 175px;
+}
+.boximage3 {
+  width: 175px;
+  cursor: pointer;
+  height: 175px;
+}
+.proofimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dialogimgdiv {
+  height: 400px;
+}
+.dialogimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buttonlast {
+  display: flex;
+  justify-content: end;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.buttonlast button {
+  margin-left: 10px;
+}
+
+.individual {
+  width: max-content;
+  background: #d1f0ff;
+  padding: 0px 3px 0px 3px;
+  border-radius: 5px;
+  color: #2eb7fe;
+  font-weight: 400;
+  font-size: 80%;
+}
+.BusinessInput {
+  padding: 0px 20px 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.BusinessInput textarea {
+  width: 80%;
+}

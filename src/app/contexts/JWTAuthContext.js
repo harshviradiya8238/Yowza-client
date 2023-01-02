@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer } from 'react';
+import React, { createContext, useEffect, useReducer, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios.js';
 import { MatxLoading } from 'app/components';
@@ -28,7 +28,7 @@ const setSession = (accessToken) => {
     delete axios.defaults.headers.common.Authorization;
   }
 };
-
+// const [isAuth, setIsAuth] = useState(false);
 const reducer = (state, action) => {
   switch (action.type) {
     case 'INIT': {
@@ -43,13 +43,22 @@ const reducer = (state, action) => {
     }
     case 'LOGIN': {
       const { user } = action.payload;
-
       return {
         ...state,
         isAuthenticated: true,
         user,
       };
     }
+
+    case 'VERIFYOTP': {
+      const { user } = action.payload;
+      return {
+        ...state,
+        isAuthenticated: true,
+        user,
+      };
+    }
+
     case 'LOGOUT': {
       return {
         ...state,
@@ -76,27 +85,55 @@ const AuthContext = createContext({
   ...initialState,
   method: 'JWT',
   login: () => Promise.resolve(),
+  verifyOtp: () => Promise.resolve(),
   logout: () => {},
   register: () => Promise.resolve(),
 });
 
 export const AuthProvider = ({ children }) => {
+  const [LoginPayload, setLoginPayload] = useState('');
+  console.log(LoginPayload);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const login = async (mobile, password) => {
-    // const response = await axios.post('/api/auth/login', {
-    //   mobile,
-    //   password,
-    // });
-    // console.log(response);
-    // const { accessToken, user } = response.data;
-    console.log('vfdyfudggighh');
-    setSession('done');
+  const login = async (mobileNo, password) => {
+    console.log({ mobileNo, password });
+    const response = await axios.post('http://157.245.99.146:4000/api/v1/admin/user/login', {
+      mobileNo,
+      password,
+    });
+    setLoginPayload(response.data.data);
+
+    const { accessToken, user } = response.data.data;
+
+    console.log(response.data.data);
+    // setSession('done');
 
     dispatch({
       type: 'LOGIN',
       payload: {
-        user: {},
+        user,
+      },
+    });
+  };
+
+  const verifyOtp = async (mobileNo, otp) => {
+    console.log({ mobileNo, otp });
+
+    const response = await axios.post('http://157.245.99.146:4000/api/v1/admin/user/verify-otp', {
+      mobileNo: 9999999999,
+      otp: 987654,
+    });
+    console.log({ response });
+
+    const { token, user } = response.data.data;
+    // const { accessToken, user } = response.data.data.data;
+    // console.log(response.data.data.data);
+    setSession('done');
+    // setLoginPayload(response.data.data);
+    dispatch({
+      type: 'VERIFYOTP',
+      payload: {
+        user,
       },
     });
   };
@@ -174,6 +211,7 @@ export const AuthProvider = ({ children }) => {
         ...state,
         method: 'JWT',
         login,
+        verifyOtp,
         logout,
         register,
       }}

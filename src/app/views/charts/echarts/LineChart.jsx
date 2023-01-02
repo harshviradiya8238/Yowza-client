@@ -5,7 +5,7 @@ const LineChart = ({ height, color = [] }) => {
   const theme = useTheme();
 
   const option = {
-    grid: { top: '10%', bottom: '10%', left: '5%', right: '5%' },
+    grid: { top: '10%', bottom: '10%', left: '8%', right: '5%' },
     legend: {
       itemGap: 20,
       icon: 'circle',
@@ -13,7 +13,7 @@ const LineChart = ({ height, color = [] }) => {
     },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'sep', 'oct', 'nov', 'dec'],
       axisLine: { show: false },
       axisTick: { show: false },
       axisLabel: {
@@ -33,19 +33,13 @@ const LineChart = ({ height, color = [] }) => {
     },
     series: [
       {
-        data: [30, 40, 20, 50, 40, 80, 90],
+        data: [
+          100000, 300000, 450000, 300000, 390000, 550000, 350000, 820000, 625000, 600000, 500000,
+          400000,
+        ],
         type: 'line',
         stack: 'This month',
         name: 'This month',
-        smooth: true,
-        symbolSize: 4,
-        lineStyle: { width: 4 },
-      },
-      {
-        data: [20, 50, 15, 50, 30, 70, 95],
-        type: 'line',
-        stack: 'Last month',
-        name: 'Last month',
         smooth: true,
         symbolSize: 4,
         lineStyle: { width: 4 },
